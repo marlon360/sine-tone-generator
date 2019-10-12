@@ -1,16 +1,16 @@
 from tkinter import Tk, Label, Button, Entry, Scale, HORIZONTAL
-from sinus import SinusGenerator
+from sine import SineGenerator
 
 import matplotlib
 matplotlib.use("TkAgg")
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
-class SinusGUI:
+class SineGUI:
     def __init__(self, master):
         self.master = master
-        master.title("Sinus Tone")
+        master.title("Sine Tone")
 
-        self.sin = SinusGenerator()
+        self.sin = SineGenerator()
 
         self.freq_label = Label(master, text="Frequency:")
         self.freq_label.pack()
@@ -27,7 +27,7 @@ class SinusGUI:
         self.play_button = Button(master, text="Play", command=self.play)
         self.play_button.pack()
 
-        f = self.sin.plot_sinus(440, volume=0.5)
+        f = self.sin.plot_sine(440, volume=0.5)
         self.canvas = FigureCanvasTkAgg(f, master=self.master)
         self.canvas.draw()
         self.canvas.get_tk_widget().pack()
@@ -41,13 +41,13 @@ class SinusGUI:
     def play(self):
         freq = float(self.freq_scale.get())
         vol = float(self.volume_scale.get())
-        self.sin.play_sinus_tone(freq, volume=vol)
+        self.sin.play_sine_tone(freq, volume=vol)
         self.add_plot()
     
     def add_plot(self):
         freq = float(self.freq_scale.get())
         vol = float(self.volume_scale.get())
-        f = self.sin.plot_sinus(freq, volume=vol)
+        f = self.sin.plot_sine(freq, volume=vol)
         self.canvas.get_tk_widget().pack_forget()
         self.canvas = FigureCanvasTkAgg(f, master=self.master)
         self.canvas.draw()

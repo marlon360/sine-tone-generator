@@ -1,4 +1,4 @@
-# Sinus Tone Generator
+# Sine Tone Generator
 
 ![Screenshot](screenshot.png)
 

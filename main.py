@@ -1,6 +1,6 @@
 from tkinter import Tk
-from gui import SinusGUI
+from gui import SineGUI
 
 root = Tk()
-my_gui = SinusGUI(root)
+my_gui = SineGUI(root)
 root.mainloop()
